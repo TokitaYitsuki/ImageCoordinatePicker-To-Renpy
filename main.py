@@ -1,10 +1,10 @@
-# @title   : ImageCoordinatePicker
+# @title   : ImageCoordinatePicker.py
 # -*- coding:utf-8 -*-
 # @author  : TokitaYitsuki
-# @URL : https://github.com/TokitaYitsuki
+# @URL : https://github.com/TokitaYitsuki/ImageCoordinatePicker-To-Renpy
 # @Date    : 9-12-2025
 # @Description: This is a program made with Python that helps Ren'Py developers arrange the UI and confirm the UI's position relative to the background coordinates.
-# @Version : V0.3
+# @Version : V1.2
 # @License : MIT License
 
 import os
@@ -1084,6 +1084,11 @@ class ImageCoordinatePicker:
     def on_resize(self, event):
         #####窗口大小改变时重新显示图片#####
         if self.background_image:
+            if self.current_mode == "overlay":
+                self.display_background_image()
+                self.bring_images_to_top()
+                return
+
             self.display_background_image()
 
 
